@@ -1,7 +1,13 @@
 "use client";  
-
+import "./globals.css";
 import { useState, useEffect } from "react";
+import {Tektur} from "next/font/google";
 
+const tektur = Tektur({
+  variable: "--font-tektur",
+  subsets: ["latin"],
+  weight: ["400","700"],
+});
 export default function Page() {
   const [progress, setProgress] = useState(0);
   const [loadText,setLoadText] = useState("Starting...")
@@ -28,19 +34,16 @@ export default function Page() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center h-screen px-4">
-      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-center">
-        Welcome to My Portfolio
-      </h1>
+    <div className="flex flex-col items-center justify-center h-screen px-4 bg-[#252425]">
       <div className=" w-full sm:w-140 md:w-180 lg:w-250 p-[2px] xl:w-300 2xl:w-350 ">
-        <p className="text-xl font-medium mt-3">BOOTING...</p>
-        <div className=" w-full h-15 bg-gray-300 p-[2px] rounded-md overflow-hidden">
+        <p className={`text-2xl mt-2 text-[#FFC0C0] font-title ${tektur.variable} font-bold`}>B O O T I N G . . .</p>
+        <div className=" w-full h-15 mt-6 bg-[#484848] rounded-md overflow-hidden">
           <div
-            className="h-full bg-blue-500 transition-all"
+            className="h-full bg-[#FFC0C0] transition-all"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
-        <p className="text-sm sm:text-base font-medium mt-3">{loadText}</p>
+        <p className="text-sm sm:text-base font-medium mt-3 text-[#FFC0C0]">{loadText}</p>
       </div>
     </div>
   );
