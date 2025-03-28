@@ -1,51 +1,36 @@
 "use client";
-import { useEffect, useState } from "react";
 import "./globals.css";
 
-interface AnimatedTextProps {
+interface SectionProps {
   text: string;
-  x: number;
-  y: number;
 }
 
-const AnimatedText: React.FC<AnimatedTextProps> = ({ text, x, y }) => {
-  const [isDrawing, setIsDrawing] = useState(false);
-
-  useEffect(() => {
-    setIsDrawing(true);
-  }, []);
-
+const Sections: React.FC<SectionProps> = ({ text }) => {
   return (
-    <text
-      x={x}
-      y={y}
-      fontFamily="Tektur, sans-serif"
-      fontSize="48"
-      fill="none"
-      stroke="#FFC0C0"
-      strokeWidth="2"
-      strokeDasharray="1000"
-      strokeDashoffset={isDrawing ? "0" : "1000"}
-      style={{ transition: "stroke-dashoffset 10s ease" }}
-    >
-      {text}
-    </text>
+    <div className="flex justify-end h-30 mr-10 ">
+      <div className="group">
+        <h1
+          className="text-8xl font-bold text-[#FFC0C0] transition-transform duration-500
+                     origin-right [transform:perspective(500px)_rotateY(-40deg)]
+                     group-hover:[transform:perspective(500px)_rotateY(-30deg)]"
+        >
+          {text}
+        </h1>
+      </div>
+    </div>
   );
 };
 
 export default function Page() {
   return (
-    <div className="flex items-center justify-center h-screen bg-[#252425]">
-      <svg
-        width="800"
-        height="400"
-        viewBox="0 0 500 200"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <AnimatedText text="MADDEWITHANAGE" x={30} y={40} />
-        <AnimatedText text="CHAMUKA" x={135} y={100} />
-        <AnimatedText text="UMESHA" x={155} y={160} />
-      </svg>
+    <div className="flex flex-col items-end bg-[#252425]" >
+      <Sections text={"Hero Section"} />
+      <Sections text={"Skills & Tech Stack"} />
+      <Sections text={"Projects"} />
+      <Sections text={"Experience"} />
+      <Sections text={"Education"} />
+      <Sections text={"Contact"} />
+      <Sections text={"Extras"} />
     </div>
   );
 }
