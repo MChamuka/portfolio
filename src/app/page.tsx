@@ -1,59 +1,86 @@
 "use client";
+import "./globals.css";
+
 import Image from "next/image";
 import { useState } from "react";
+import c from "../images/c.png";
+import css from "../images/css.png";
+import html from "../images/html.png";
+import java from "../images/java.png";
+import js from "../images/js.png";
+import mongo from "../images/mongo.png";
+import node from "../images/nodejs.png";
 
-// Import all images
-import pic from "../images/pic.jpg";
+import python from "../images/python.png";
+import react from "../images/react.png";
+import sql from "../images/sql.png";
+import ts from "../images/ts.png";
+
+import flask from "../images/Flask.png";
+import comm from "../images/comm.png";
+import idea from "../images/idea.png";
+import tw from "../images/tw.png";
+import php from "../images/php.png";
+import fapi from "../images/FastApi.png";
+import express from "../images/Express.png";
+
 
 const frontend = [
   {
-    main: { image: pic, text: "JavaScript" },
+    main: { image: js, text: "JavaScript" },
     subSkills: [
-      { text: "React", image: pic },
-      { text: "Node.js", image: pic },
-      { text: "Express", image: pic },
+      { text: "Typesript", image: ts },
+      { text: "React", image: react },
+      { text: "React Native", image: react },
+      { text: "Node.js", image: node },
+      { text: "Express", image: express },
+      
     ],
   },
   {
-    main: { image: pic, text: "Python" },
+    main: { image: python, text: "Python" },
     subSkills: [
-      { text: "Flask", image: pic },
-      { text: "FastAPI", image: pic },
+      { text: "Flask", image: flask },
+      { text: "FastAPI", image: fapi },
     ],
   },
   {
-    main: { image: pic, text: "SQL" },
+    main: { image: java, text: "Java" },
     subSkills: [],
   },
   {
-    main: { image: pic, text: "PHP" },
+    main: { image: sql, text: "SQL" },
     subSkills: [],
   },
   {
-    main: { image: pic, text: "MongoDB" },
+    main: { image: php, text: "PHP" },
     subSkills: [],
   },
   {
-    main: { image: pic, text: "C++" },
+    main: { image: mongo, text: "MongoDB" },
     subSkills: [],
   },
   {
-    main: { image: pic, text: "HTML" },
+    main: { image: c, text: "C++" },
     subSkills: [],
   },
   {
-    main: { image: pic, text: "CSS" },
+    main: { image: html, text: "HTML" },
+    subSkills: [],
+  },
+  {
+    main: { image: css, text: "CSS" },
     subSkills: [
-      { text: "SCSS", image: pic },
-      { text: "Tailwind", image: pic },
+      { text: "SCSS", image: css },
+      { text: "Tailwind", image: tw },
     ],
   },
 ];
 const soft = [
-  { image: pic, text: "Problem Solving" },
-  { image: pic, text: "Communication" },
-  { image: pic, text: "Adaptability" },
-  { image: pic, text: "Critical Thinking" },
+  { image: idea, text: "Problem Solving" },
+  { image: comm, text: "Communication" },
+  { image: idea, text: "Adaptability" },
+  { image: idea, text: "Critical Thinking" },
 ];
 
 export default function Skills() {
@@ -71,11 +98,11 @@ export default function Skills() {
       return updated;
     });
   };
-
   return (
-    <div className="p-10 space-y-10">
+    <div className="min-h-screen bg-[#252425]">
+    <div className="p-10 space-y-10  text-[#FFC0C0]">
       <h2 className="text-2xl font-bold mb-4">Tech Skills</h2>
-      <div className="overflow-x-auto flex gap-6">
+      <div className="overflow-x-auto flex gap-6 pb-5">
         {frontend.map((skill, i) => {
           const isMain = activeIndexes[i] === -1 || skill.subSkills.length === 0;
           const current = isMain
@@ -85,7 +112,7 @@ export default function Skills() {
           return (
             <div
               key={i}
-              className="min-w-[150px] flex-shrink-0 bg-gray-800 rounded-xl p-4 text-center text-white relative"
+              className="min-w-[150px] flex-shrink-0 bg-[#FFC0C0] rounded-xl p-4 text-center text-black relative"
             >
               <Image
                 src={current.image}
@@ -109,11 +136,13 @@ export default function Skills() {
           );
         })}
       </div>
-      <div className="overflow-x-auto flex gap-6">
+      <h2 className="text-2xl font-bold mb-4">Soft Skills</h2>
+
+      <div className="overflow-x-auto flex gap-6 pb-5">
         {soft.map((skill, index) => (
           <div
             key={index}
-            className="min-w-[150px] flex-shrink-0 bg-pink-100 rounded-xl p-4 text-center"
+            className="min-w-[150px] flex-shrink-0 bg-[#FFC0C0] rounded-xl p-4 text-center"
           >
             <Image
               src={skill.image}
@@ -126,6 +155,7 @@ export default function Skills() {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }
