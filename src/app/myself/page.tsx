@@ -1,12 +1,15 @@
 import Image from 'next/image'
 import pic from '../../images/pic.jpg'
 import ".././globals.css";
+import DiamondNavbar from "../../components/DiamondNavbar";
 
 
 export default function Myself() {
   return (
     <div className="flex items-center justify-center bg-[#252425] text-[#FFC0C0] min-h-screen px-8">
       {/* Image Section */}
+                  <DiamondNavbar />
+      
       <div className="mr-10">
         <Image
           src={pic}

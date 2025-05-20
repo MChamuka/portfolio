@@ -46,7 +46,6 @@ export default function SliderPage() {
       className="h-screen flex bg-[#252425] text-[#FFC0C0] font-sans"
       style={{ fontFamily: "Tektur, sans-serif" }}
     >
-      {/* Left Side */}
       <div className="w-1/2 flex flex-col justify-center px-16">
         <h1 className="text-5xl font-bold mb-6">Hello, welcome to my portfolio</h1>
         <p className="text-xl">

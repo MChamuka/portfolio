@@ -1,3 +1,5 @@
+import DiamondNavbar from "../../components/DiamondNavbar";
+
 export default function Projects() {
   const projects = [
     {
@@ -34,6 +36,8 @@ export default function Projects() {
 
   return (
     <div className="p-10 space-y-10 bg-[#252425]">
+                  <DiamondNavbar />
+      
       <h1 className="text-3xl font-bold">Projects</h1>
       {projects.map((project, idx) => (
         <div key={idx} className="bg-[#171617] p-6 rounded-xl shadow-md">
