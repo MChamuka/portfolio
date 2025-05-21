@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { FaCog } from "react-icons/fa";
-import { useRouter } from "next/navigation"; // App Router version
+import { useRouter } from "next/navigation";
 import "./globals.css";
 
 const slides = [
@@ -23,7 +23,7 @@ export default function SliderPage() {
     [leftDashRef.current, rightDashRef.current].forEach((el) => {
       if (el) {
         el.classList.remove("animate-dash-once");
-        void el.offsetWidth; // Force reflow
+        void el.offsetWidth;
         el.classList.add("animate-dash-once");
       }
     });
@@ -43,31 +43,34 @@ export default function SliderPage() {
 
   return (
     <div
-      className="h-screen flex bg-[#252425] text-[#FFC0C0] font-sans"
+      className="min-h-screen flex flex-col md:flex-row bg-[#252425] text-[#FFC0C0] font-sans px-6 py-12"
       style={{ fontFamily: "Tektur, sans-serif" }}
     >
-      <div className="w-1/2 flex flex-col justify-center px-16">
-        <h1 className="text-5xl font-bold mb-6">Hello, welcome to my portfolio</h1>
-        <p className="text-xl">
-          I’m Chamuka Umesha — a passionate developer with a love for modern web technologies.
-          I enjoy creating beautiful and interactive user experiences.
+      {/* Left Section */}
+      <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start mb-10 md:mb-0 md:px-16 text-center md:text-left">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          Hello, welcome to my portfolio
+        </h1>
+        <p className="text-lg sm:text-xl max-w-md">
+          I’m Chamuka Umesha — a passionate developer with a love for modern web
+          technologies. I enjoy creating beautiful and interactive user experiences.
         </p>
       </div>
 
-      {/* Right Side */}
-      <div className="w-1/2 flex items-center justify-center relative overflow-hidden flex-col">
-        {/* Cogwheel + Flowing Dashes */}
+      {/* Right Section */}
+      <div className="w-full md:w-1/2 flex flex-col items-center justify-center relative">
+        {/* Cogwheel + Dashes */}
         <div className="flex items-center mb-10">
-          <div ref={leftDashRef} className="dashed-line w-40" />
+          <div ref={leftDashRef} className="dashed-line w-24 sm:w-32 md:w-40" />
           <FaCog
             className="text-[#FFC0C0] text-3xl mx-4 transition-transform duration-500"
             style={{ transform: `rotate(${rotation}deg)` }}
           />
-          <div ref={rightDashRef} className="dashed-line w-40" />
+          <div ref={rightDashRef} className="dashed-line w-24 sm:w-32 md:w-40" />
         </div>
 
-        {/* Slider */}
-        <div className="relative w-[400px] h-[200px] perspective-[1000px]">
+        {/* 3D Carousel */}
+        <div className="relative w-[90vw] max-w-[400px] h-[200px] perspective-[1000px] mb-6">
           <div
             className="w-full h-full relative transition-transform duration-700"
             style={{
@@ -80,7 +83,7 @@ export default function SliderPage() {
               return (
                 <div
                   key={index}
-                  className="absolute w-full h-full flex items-center justify-center text-2xl font-bold cursor-pointer hover:underline"
+                  className="absolute w-full h-full flex items-center justify-center text-xl sm:text-2xl font-bold cursor-pointer hover:underline text-center"
                   style={{
                     transform: `rotateY(${angle}deg) translateZ(300px)`,
                     backfaceVisibility: "hidden",
@@ -94,8 +97,8 @@ export default function SliderPage() {
           </div>
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="absolute bottom-10 flex gap-5">
+        {/* Buttons */}
+        <div className="flex gap-4">
           <button
             className="px-4 py-2 bg-[#FFC0C0] text-black font-semibold rounded"
             onClick={rotatePrev}
