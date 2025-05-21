@@ -18,12 +18,16 @@ import sql from "../../images/sql.png";
 import ts from "../../images/ts.png";
 
 import flask from "../../images/Flask.png";
-import comm from "../../images/comm.png";
 import idea from "../../images/idea.png";
 import tw from "../../images/tw.png";
 import php from "../../images/php.png";
 import fapi from "../../images/FastApi.png";
 import express from "../../images/Express.png";
+import twork from "../../images/twork.png";
+import coms from "../../images/coms.png";
+import learn from "../../images/learn.png";
+import ps from "../../images/ps.png";
+import creativity from "../../images/creativity.png";
 
 
 const frontend = [
@@ -78,9 +82,11 @@ const frontend = [
   },
 ];
 const soft = [
-  { image: idea, text: "Problem Solving" },
-  { image: comm, text: "Communication" },
-  { image: idea, text: "Adaptability" },
+  { image: ps, text: "Problem Solving" },
+  { image: coms, text: "Communication" },
+  { image: learn, text: "Fast learning" },
+  { image: twork, text: "Teamwork" },
+  { image: creativity, text: "Creativity" },
   { image: idea, text: "Critical Thinking" },
 ];
 
