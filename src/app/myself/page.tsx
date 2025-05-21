@@ -10,7 +10,7 @@ export default function Myself() {
       {/* Image Section */}
                   <DiamondNavbar />
       
-      <div className="mr-10">
+      <div className="mr-10 mt-10">
         <Image
           src={pic}
           alt="My Profile"

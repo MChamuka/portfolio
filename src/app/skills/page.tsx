@@ -109,8 +109,8 @@ export default function Skills() {
     <div className="min-h-screen bg-[#252425]">
     <DiamondNavbar />
       
-    <div className="p-10 space-y-10  text-[#FFC0C0]">
-      <h2 className="text-2xl font-bold mb-4">Tech Skills</h2>
+    <div className="p-10 space-y-10  text-[#FFC0C0] ">
+      <h2 className="text-2xl font-bold mb-4 mt-20">Tech Skills</h2>
       <div className="overflow-x-auto flex gap-6 pb-5">
         {frontend.map((skill, i) => {
           const isMain = activeIndexes[i] === -1 || skill.subSkills.length === 0;

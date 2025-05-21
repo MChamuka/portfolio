@@ -11,7 +11,7 @@ export default function DiamondNavbar() {
   ];
 
   return (
-    <nav className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 flex gap-6">
+    <nav className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 flex gap-6 ">
       {navItems.map((item, index) => (
         <Link
           key={index}
