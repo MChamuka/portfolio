@@ -49,11 +49,10 @@ export default function SliderPage() {
       {/* Left Section */}
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start mb-10 md:mb-0 md:px-16 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-          Hello, welcome to my portfolio
+          Hi there! Welcome to my portfolio 
         </h1>
         <p className="text-lg sm:text-xl max-w-md">
-          I’m Chamuka Umesha — a passionate developer with a love for modern web
-          technologies. I enjoy creating beautiful and interactive user experiences.
+          This is where my fullstack development journey comes to life — through code, tools, and real-world projects.
         </p>
       </div>
 
