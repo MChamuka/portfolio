@@ -135,7 +135,7 @@ export default function Skills() {
               {skill.subSkills.length > 0 && (
                 <button
                   onClick={() => handleNext(i)}
-                  className="absolute top-2 right-2 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full transition"
+                  className="absolute top-2 right-2 text-white bg-black/50 hover:bg-white/50 backdrop-blur-sm px-2 py-1 rounded-full transition"
                   title="Next sub-skill"
                 >
                   →
