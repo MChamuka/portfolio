@@ -46,7 +46,7 @@ const frontend = [
     main: { image: python, text: "Python" },
     subSkills: [
       { text: "Flask", image: flask },
-      { text: "fapi", image: fapi },
+      { text: "FastApi", image: fapi },
     ],
   },
   {
