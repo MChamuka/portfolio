@@ -21,7 +21,7 @@ import flask from "../../images/Flask.png";
 import idea from "../../images/idea.png";
 import tw from "../../images/tw.png";
 import php from "../../images/php.png";
-import fapi from "../../images/FastApi.png";
+import fapi from "../../images/fastapi.png";
 import express from "../../images/Express.png";
 import twork from "../../images/twork.png";
 import coms from "../../images/coms.png";
