@@ -1,18 +1,61 @@
-"use client";
-import { useState, useRef } from "react";
-import { FaCog } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import "./globals.css";
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { FaCog } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+import './globals.css';
 
 const slides = [
-  { title: "Who I Am", path: "/myself" },
-  { title: "Projects", path: "/projects" },
-  { title: "My Toolkit", path: "/skills" },
-  { title: "Who I Am", path: "/myself" },
-  { title: "Projects", path: "/projects" },
+  { title: 'Who I Am', path: '/myself' },
+  { title: 'Projects', path: '/projects' },
+  { title: 'My Toolkit', path: '/skills' },
+  { title: 'Who I Am', path: '/myself' },
+  { title: 'Projects', path: '/projects' },
 ];
 
+const AnimatedText = ({ text, x, y }: { text: string; x: number; y: number }) => {
+  const [isDrawing, setIsDrawing] = useState(false);
+
+  useEffect(() => {
+    setIsDrawing(true);
+  }, []);
+
+  return (
+    <text
+      x={x}
+      y={y}
+      fontFamily="Tektur, sans-serif"
+      fontSize="48"
+      fill="none"
+      stroke="#FFC0C0"
+      strokeWidth="2"
+      strokeDasharray="1000"
+      strokeDashoffset={isDrawing ? '0' : '1000'}
+      style={{ transition: 'stroke-dashoffset 4s ease' }}
+    >
+      {text}
+    </text>
+  );
+};
+
+const Animation = ({ onDone }: { onDone: () => void }) => {
+  useEffect(() => {
+    const timer = setTimeout(onDone, 4000);
+    return () => clearTimeout(timer);
+  }, [onDone]);
+
+  return (
+    <div className="flex items-center justify-center h-screen bg-[#252425]">
+      <svg width="800" height="400" viewBox="0 0 500 200">
+        <AnimatedText text="MADDEWITHANAGE" x={30} y={40} />
+        <AnimatedText text="CHAMUKA" x={135} y={100} />
+        <AnimatedText text="UMESHA" x={155} y={160} />
+      </svg>
+    </div>
+  );
+};
+
 export default function SliderPage() {
+  const [showAnimation, setShowAnimation] = useState(true);
   const [current, setCurrent] = useState(0);
   const [rotation, setRotation] = useState(0);
   const leftDashRef = useRef<HTMLDivElement>(null);
@@ -22,9 +65,9 @@ export default function SliderPage() {
   const triggerDashAnimation = () => {
     [leftDashRef.current, rightDashRef.current].forEach((el) => {
       if (el) {
-        el.classList.remove("animate-dash-once");
+        el.classList.remove('animate-dash-once');
         void el.offsetWidth;
-        el.classList.add("animate-dash-once");
+        el.classList.add('animate-dash-once');
       }
     });
   };
@@ -41,15 +84,19 @@ export default function SliderPage() {
     triggerDashAnimation();
   };
 
+  if (showAnimation) {
+    return <Animation onDone={() => setShowAnimation(false)} />;
+  }
+
   return (
     <div
       className="min-h-screen flex flex-col md:flex-row bg-[#252425] text-[#FFC0C0] font-sans px-6 py-12"
-      style={{ fontFamily: "Tektur, sans-serif" }}
+      style={{ fontFamily: 'Tektur, sans-serif' }}
     >
       {/* Left Section */}
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start mb-10 md:mb-0 md:px-16 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-          Hi there! Welcome to my portfolio 
+          Hi there! Welcome to my portfolio
         </h1>
         <p className="text-lg sm:text-xl max-w-md">
           This is where my fullstack development journey comes to life — through code, tools, and real-world projects.
@@ -74,7 +121,7 @@ export default function SliderPage() {
             className="w-full h-full relative transition-transform duration-700"
             style={{
               transform: `translateZ(-300px) rotateY(${current * -72}deg)`,
-              transformStyle: "preserve-3d",
+              transformStyle: 'preserve-3d',
             }}
           >
             {slides.map((slide, index) => {
@@ -85,7 +132,7 @@ export default function SliderPage() {
                   className="absolute w-full h-full flex items-center justify-center text-xl sm:text-2xl font-bold cursor-pointer hover:underline text-center"
                   style={{
                     transform: `rotateY(${angle}deg) translateZ(300px)`,
-                    backfaceVisibility: "hidden",
+                    backfaceVisibility: 'hidden',
                   }}
                   onClick={() => router.push(slide.path)}
                 >

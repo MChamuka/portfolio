@@ -29,7 +29,7 @@ export default function Page() {
 
         return newProgress;
       });
-    }, 500);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
